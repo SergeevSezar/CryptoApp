@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Crypto App</string>
+    <string name="logo_of_coin">logo of coin</string>
 </resources>
