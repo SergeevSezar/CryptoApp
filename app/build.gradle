@@ -56,6 +56,11 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
 
+    //View Model
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.0"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0"
+
     //Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
 
@@ -63,20 +68,14 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
     //Room
-    def room_version = "2.3.0"
+    def room_version = "2.4.0-beta01"
     implementation("androidx.room:room-runtime:2.4.0")
-    annotationProcessor "androidx.room:room-compiler:$room_version"
     kapt("androidx.room:room-compiler:$room_version")
     implementation("androidx.room:room-ktx:2.4.0")
-    implementation "androidx.room:room-guava:2.4.0"
-    testImplementation("androidx.room:room-testing:2.4.0")
-    implementation("androidx.room:room-paging:2.4.0")
 
     //Picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
 
     //Work manager
     implementation 'androidx.work:work-runtime-ktx:2.7.1'
-
-
 }

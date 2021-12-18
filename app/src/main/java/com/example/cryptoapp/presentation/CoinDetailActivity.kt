@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.cryptoapp.R
+import com.example.cryptoapp.data.network.ApiFactory.BASE_IMAGE_URL
+import com.example.cryptoapp.utils.convertTimestampToTime
 import com.squareup.picasso.Picasso
 
 class CoinDetailActivity : AppCompatActivity() {
@@ -39,10 +41,10 @@ class CoinDetailActivity : AppCompatActivity() {
                 tvMinPrice.text = it.lowDay.toString()
                 tvMaxPrice.text = it.highDay.toString()
                 tvLastMarket.text = it.lastMarket
-                tvLastUpdate.text = it.getFormattedTime()
+                tvLastUpdate.text = convertTimestampToTime(it.lastUpdate)
                 tvFromSymbol.text = it.fromSymbol
                 tvToSymbol.text = it.toSymbol
-                Picasso.get().load(it.getFullImageUrl()).into(ivLogoCoinDetail)
+                Picasso.get().load(BASE_IMAGE_URL + it.imageUrl).into(ivLogoCoinDetail)
             })
         }
     }

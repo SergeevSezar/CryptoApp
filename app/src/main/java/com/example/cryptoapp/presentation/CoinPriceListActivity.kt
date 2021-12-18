@@ -5,8 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptoapp.R
+import com.example.cryptoapp.domain.CoinInfo
 import com.example.cryptoapp.presentation.adapter.CoinInfoAdapter
-import com.example.cryptoapp.data.network.model.CoinInfoDto
 
 class CoinPriceListActivity : AppCompatActivity() {
 
@@ -20,7 +20,7 @@ class CoinPriceListActivity : AppCompatActivity() {
 
         val adapter = CoinInfoAdapter(this)
         adapter.onCoinClickListener = object : CoinInfoAdapter.OnCoinClickListener {
-            override fun onClick(coinPriceInfo: CoinInfoDto) {
+            override fun onClick(coinPriceInfo: CoinInfo) {
                 val intent = CoinDetailActivity.newIntent(
                     this@CoinPriceListActivity,
                     coinPriceInfo.fromSymbol
@@ -32,7 +32,7 @@ class CoinPriceListActivity : AppCompatActivity() {
 
         viewModel =
             ViewModelProvider.AndroidViewModelFactory(application).create(CoinViewModel::class.java)
-        viewModel.priceList.observe(this, {
+        viewModel.coinInfoList.observe(this, {
             adapter.coinInfoList = it
         })
     }
